@@ -1,0 +1,10 @@
+# requirements.txt is a file that lists all the Python packages your project depends on.
+# When you run `pip install -r requirements.txt`, it will install all the packages listed in this file.
+Example:
+Flask==3.0.2
+Werkzeug==3.0.1 
+
+for this simple project
+
+note:
+gitigore file should be created to ignore unnecessary files and folders from being tracked by git. For example, you can ignore the virtual environment folder, __pycache__ folders, and any other files that are not necessary for your project. for now it contains venv/
