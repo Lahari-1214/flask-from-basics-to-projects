@@ -10,4 +10,4 @@ Run the following commands to create virtual environment:
 
 4. Running server:  Run the file app.py present in this folder.[python app.py]
 
-5.![Project Structure](static/png1.png)
+5.![Project Structure](static/sample.png)

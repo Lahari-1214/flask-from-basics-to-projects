@@ -5,6 +5,7 @@ app = Flask(__name__)
 def home():
     return "Welcome home"
 
+""" URL Convertors"""
 @app.route('/INT/<int:num>')
 def Number(num):
     #if you give any other type of data except integer it won't accept
@@ -29,6 +30,10 @@ def Number4(num):
 def Number5(num):
     #it accepts the data in form of 8-4-4-4-12 which contains only a-e/0-9
     return f"Your number is {num}"
+
+
+"""REQUEST HANDLING"""
+
 
 if __name__ == '__main__':
     app.run(debug=True)
