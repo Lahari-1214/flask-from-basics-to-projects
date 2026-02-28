@@ -36,3 +36,35 @@ Deletes existing record(s) based on given ID or condition.
 
 
 
+# POSTMAN TOOL
+
+<strong>Install Postman:</strong>
+
+Download from official website:https://www.postman.com/downloads/
+
+### How to Test Flask API
+1. Run Flask app: python app.py
+
+2. Open Postman
+
+3. Select request method (GET / POST/ PUT/ DELETE)
+
+4. Enter URL: http://127.0.0.1:5000/postdata
+
+5. For POST request:
+
+    + Go to Body
+
+    + Select raw
+
+    + Choose JSON
+    
+Send data like:{
+  "username": "admin"
+}
+
+6. Click SEND
+
+and now ,results are in the console.
+
+
