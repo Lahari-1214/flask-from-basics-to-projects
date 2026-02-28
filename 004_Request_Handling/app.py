@@ -1,5 +1,13 @@
-from flask import Flask,redirect,url_for,request
+from flask import Flask,redirect,url_for,request,jsonify
 app = Flask(__name__)
+
+# Mock data for PUT request
+data = {
+    "name":"Jani",
+    "age":24
+}
+
+
 @app.route('/')
 def Home():
     return "Welcome Home"
@@ -29,6 +37,15 @@ def postdata():
                 <button type='submit'>Submit</button>
             </form>
         """
+# PUT Request URL: http://127.0.0.1:5000/update in POSTMAN with JSON body {"name":"Jani","age":24}
+@app.route('/update',methods=['PUT'])
+def Update():
+    nname = request.json.get('name')
+    nage = request.json.get('age')
+
+    data['name'] = nname
+    data['age'] = nage
+    return jsonify({"new data":data})
 
 if __name__ == '__main__':
     app.run(debug=True)

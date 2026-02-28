@@ -19,3 +19,12 @@ Used for creating new data or sending confidential data.
 Not visible in the URL → more secure.
 
 
+### PUT Request
+##### Definition:
+The PUT method is used to update or replace existing data on the server.
+It’s common in RESTful APIs (not usually in HTML forms).
+##### Usage:
+Used when you want to update an existing resource.
+Data is sent in the request body.
+
+
