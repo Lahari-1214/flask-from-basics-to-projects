@@ -47,6 +47,16 @@ def Update():
     data['age'] = nage
     return jsonify({"new data":data})
 
+# DELETE Request URL: http://127.0.0.1.5000/delete in POSTMAN with JSON body {"name":"Jani"}
+@app.route('/delete',methods=['DELETE'])
+def Delete():
+    name = request.json.get('name')
+    if data['name'] == name:
+        data['name'] = None
+        data['age'] = None
+        return jsonify({"message":"Data deleted successfully"})
+    else:
+        return jsonify({"message":"Name not found in data"})
 if __name__ == '__main__':
     app.run(debug=True)
     

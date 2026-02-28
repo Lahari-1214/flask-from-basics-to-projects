@@ -27,4 +27,12 @@ It’s common in RESTful APIs (not usually in HTML forms).
 Used when you want to update an existing resource.
 Data is sent in the request body.
 
+### DELETE Request
+##### Definition:
+The DELETE method is used to remove data from the server.
+Often used in RESTful APIs to delete a resource.
+##### Usage:
+Deletes existing record(s) based on given ID or condition.
+
+
 
