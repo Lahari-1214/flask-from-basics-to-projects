@@ -31,4 +31,7 @@ Syntax:
 {% else %}
 {% endif %}
 
-
+<pre>
+<h4>render_template()</h4>
+It is a flask method used to render the html pages and sends the data from flask app to html template.
+</pre>
