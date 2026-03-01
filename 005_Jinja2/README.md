@@ -18,3 +18,9 @@ Python data injected cleanly</pre>
 1. Variables in Jinja2
 syntax: {{ variable_name }}
  visit code in this folder: app.py
+
+ 2. Loops in Jinja2
+Syntax: 
+{% for item in list %}
+{% endfor %}
+
