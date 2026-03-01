@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My App{%endblock%}</title>
+</head>
+<body>
+    <header>
+    <nav>
+        <a href="/">Home</a> <br>
+        <a href="">About</a> <br>
+        <a href="">Contact</a>
+
+    </nav>
+    </header>
+    <hr> <hr>
+    <main>
+        {% block content %} 
+        <p> I am a Base Template</p>
+        {% endblock %}
+    </main> <hr><hr>
+    <footer>   @copyright this is reserved only for Leela</footer>
+    
+</body>
+</html>
