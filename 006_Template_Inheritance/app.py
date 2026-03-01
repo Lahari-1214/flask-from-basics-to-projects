@@ -10,7 +10,7 @@ def Login():
 
 @app.route("/home",methods=['POST'])
 def home():
-    username = request.args.get("username")
+    username = request.form['username']
     return render_template("home.html", username=username)
 
 
