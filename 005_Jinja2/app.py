@@ -18,5 +18,9 @@ def Loops():
     user_list = ['Leela','Surya','Satya','Abhi']
     return render_template("users.html",users=user_list)
 
+@app.route("/check")
+def check():
+    return render_template("check.html", age=20)
+
 if __name__ == '__main__':
     app.run(debug = True)

@@ -24,3 +24,10 @@ Syntax:
 {% for item in list %}
 {% endfor %}
 
+3. Conditions in Jinja2
+Syntax:
+{% if condition %}
+{% elif condition %}
+{% else %}
+{% endif %}
+
