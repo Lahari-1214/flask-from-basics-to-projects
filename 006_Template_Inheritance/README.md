@@ -25,3 +25,18 @@ home.html → which extends → base.html
 Jinja merges them internally.
 </pre>
 
+
+
+## Styling
+1. Create CSS File : 'static/css/style.css'
+2. Link CSS in base.html : '<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">'
+
+<strong>IMPORTANT</strong>
+* Never Write: 
+        <link rel="stylesheet" href="static/css/style.css">
+* Always use:
+        {{ url_for('static', filename='css/style.css') }}
+        
+
+
+
