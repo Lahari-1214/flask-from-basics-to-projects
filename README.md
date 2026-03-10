@@ -8,14 +8,16 @@ This repository documents my complete journey of learning Flask — from underst
 
 <pre>
 What is a Framework?
-Flask Basics
-Routing
-Templates & Jinja
-Forms Handling
-CRUD Operations
-Database Integration
-Authentication
-Deployment
+1. Flask Basics
+2. Routing
+3. Templates & Jinja
+4. Forms Handling
+5. OTP Generation
+6. Email Verification
+7. CRUD Operations
+8. Database Integration
+9. Authentication
+10. Deployment
 </pre>
 
 ## Tech Stack
@@ -32,4 +34,4 @@ Deployment
 
 ## Learning Progress
 
-- [ x ] Beginner → Intermediate → Building Projects
+ [ x ] Beginner → Intermediate → Building Projects
