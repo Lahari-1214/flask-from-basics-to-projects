@@ -19,9 +19,9 @@ You must create App Password.
 5. Generate App Password
 6. Use that 16- character password in Python
 
-- [ X ] follow the screenshots for more understanding:
-![Screenshot 1](static/ap1.png)
+- [X] follow the screenshots for more understanding:
+![Screenshot 1](assets/ap1.png)
 
-![Screenshot 2](static/ap2.png)
+![Screenshot 2](assets/ap2.png)
 
 
