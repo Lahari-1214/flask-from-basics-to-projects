@@ -19,9 +19,12 @@ You must create App Password.
 5. Generate App Password
 6. Use that 16- character password in Python
 
-- [X] follow the screenshots for more understanding:
-![Screenshot 1](assets/ap1.png)
+## Screenshots
 
-![Screenshot 2](assets/ap2.png)
+| Email Sent | Email Received |
+|------------|---------------|
+| ![](assets/ap1.png) | ![](assets/ap2.png) |
+
+- [X] follow the code inside the folder.
 
 
