@@ -19,8 +19,9 @@ You must create App Password.
 5. Generate App Password
 6. Use that 16- character password in Python
 
-- [ x ] follow the screenshots for more understanding:
-<img src=”/ap1.png” alt=”Relative” />
-![Relative](/ap2.png)
+- [ X ] follow the screenshots for more understanding:
+![Screenshot 1](static/ap1.png)
+
+![Screenshot 2](static/ap2.png)
 
 
