@@ -25,3 +25,14 @@ You must create App Password.
 - [X] follow the code inside the folder.
 
 
+### For Email integration with flask check the repository
+Project-1:
+✅ OTP Email Login [OTP_Email_Login]
+
+Project-2:
+✅ To-Do App with Database [TO-DO_App]
+
+Project-3:
+✅ URL Shortener [URL_Shortner]
+
+
