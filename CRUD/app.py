@@ -46,6 +46,20 @@ def Adduser():
     cursor.close()
     return jsonify({'message':'User added successfully'})
 
+# Updating an existing user's information in the database using data from a PUT request
+@app.route('/updateuser/<int:id>',methods=['PUT'])  
+def Updateuser(id):
+    data = request.get_json()
+    name = data['name']
+    email = data['email']
+    cursor = mydb.cursor()
+    cursor.execute("update users set name = %s, email = %s where id = %s",(name,email,id))
+    mydb.commit()
+    cursor.close()
+    return jsonify({'message':'User updated successfully'})
+
+
+
 
 
 
