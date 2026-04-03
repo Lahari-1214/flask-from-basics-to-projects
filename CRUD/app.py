@@ -10,10 +10,13 @@ mydb = mysql.connector.connect(
     database = 'yourdatabase'
 )
 
+# Testing the database connection
 @app.route('/')
 def Home():
     return "DB connection is Success...... "
 
+
+# Retrieving all users from the database and returning them as JSON
 @app.route('/getusers',methods=['GET'])
 def Getallusers():
     cursor = mydb.cursor()
