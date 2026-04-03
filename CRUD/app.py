@@ -25,6 +25,15 @@ def Getallusers():
     cursor.close()
     return jsonify(result)
 
+# Retrieving a specific user by ID from the database and returning it as JSON
+@app.route('/getuser/<int:id>',methods=['GET'])
+def Getuser(id):
+    cursor = mydb.cursor()
+    cursor.execute("select * from users where id = %s",(id,))
+    result = cursor.fetchone()
+    cursor.close()
+    return jsonify(result)
+
 
 
 
