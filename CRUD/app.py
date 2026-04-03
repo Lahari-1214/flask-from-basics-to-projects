@@ -15,6 +15,7 @@ mydb = mysql.connector.connect(
 def Home():
     return "DB connection is Success...... "
 
+# cursor object is used to execute SQL queries and fetch results from the database
 
 # Retrieving all users from the database and returning them as JSON
 @app.route('/getusers',methods=['GET'])
@@ -66,12 +67,6 @@ def Deleteuser(id):
     mydb.commit()
     cursor.close()
     return jsonify({'message':'User deleted successfully'})
-
-
-
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
