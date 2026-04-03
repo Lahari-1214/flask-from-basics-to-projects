@@ -34,6 +34,18 @@ def Getuser(id):
     cursor.close()
     return jsonify(result)
 
+# Adding a new user to the database using data from a POST request
+@app.route('/adduser',methods=['POST'])
+def Adduser():
+    data = request.get_json()
+    name = data['name']
+    email = data['email']
+    cursor = mydb.cursor()
+    cursor.execute("insert into users (name,email) values (%s,%s)",(name,email))
+    mydb.commit()
+    cursor.close()
+    return jsonify({'message':'User added successfully'})
+
 
 
 
