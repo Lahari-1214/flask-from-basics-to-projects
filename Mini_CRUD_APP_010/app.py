@@ -6,7 +6,7 @@ mydb = mysql.connector.connect(
     host = "localhost",
     user = "root",
     password = "your_password",
-    database = "your DB name"
+    database = "your_database"
 
 )
 @app.route('/')
@@ -31,6 +31,25 @@ def Register():
     cursor.execute(query, (fname, lname, email, uname, pwd,))
     mydb.commit()
     return " Registration Successful! <br><a href='/login'>Go to Login</a>"
+
+@app.route('/login')
+def login_page():
+    return render_template("login.html")
+
+@app.route('/logincheck', methods = ['POST'])
+def login_check():
+    uname = request.form['username']
+    pwd = request.form['password']
+
+    query = "SELECT * FROM users WHERE username = %s AND password = %s"
+    cursor = mydb.cursor()
+    cursor.execute(query, (uname, pwd,))
+    result = cursor.fetchone()
+
+    if result:
+        return "Login Successful!"
+    else:
+        return "Invalid username or password. Please try again."
 
 
 
