@@ -58,6 +58,15 @@ def Updateuser(id):
     cursor.close()
     return jsonify({'message':'User updated successfully'})
 
+# Deleting a user from the database using their ID from a DELETE request
+@app.route('/deleteuser/<int:id>',methods=['DELETE'])
+def Deleteuser(id):
+    cursor = mydb.cursor()
+    cursor.execute("delete from users where id = %s",(id,))
+    mydb.commit()
+    cursor.close()
+    return jsonify({'message':'User deleted successfully'})
+
 
 
 
