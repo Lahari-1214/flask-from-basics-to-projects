@@ -36,20 +36,24 @@ def Register():
 def login_page():
     return render_template("login.html")
 
-@app.route('/logincheck', methods = ['POST'])
-def login_check():
+@app.route('/logincheck', methods=['POST'])
+def logincheck():
     uname = request.form['username']
     pwd = request.form['password']
 
-    query = "SELECT * FROM users WHERE username = %s AND password = %s"
+    # Check in database
+    query = "SELECT firstname, lastname, email, username FROM users WHERE username=%s AND password=%s"
     cursor = mydb.cursor()
-    cursor.execute(query, (uname, pwd,))
-    result = cursor.fetchone()
+    cursor.execute(query, (uname, pwd))
+    user = cursor.fetchone()
 
-    if result:
-        return "Login Successful!"
+    if user:
+        # user = (firstname, lastname, email, username)
+        return render_template("profile.html", user=user)
     else:
-        return "Invalid username or password. Please try again."
+        return " Invalid Username or Password! <br><a href='/login'>Try Again</a>"
+
+
 
 
 
