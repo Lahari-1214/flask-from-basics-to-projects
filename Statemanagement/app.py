@@ -7,7 +7,7 @@ app=Flask(__name__)
 
 app.secret_key='xyz1236'
 
-
+app.permanent_session_lifetime=timedelta(seconds=30)
 
 
 # hardcoded data 
@@ -42,6 +42,12 @@ def Dashboard():
     return redirect("/")
 
 
+# route for logout
+
+@app.route("/logout")
+def Logout():
+    session.pop('uname',None)
+    return redirect("/")
 
 
 if __name__=='__main__':
