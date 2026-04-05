@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+{%block title%}Flask login page {%endblock%}
+
+{%block content%}
+  
+  <form action="/"  method="post">
+    enter username: <input type="text" name="uname" required> <br><br>
+    enter password: <input type="password" name="pwrd" required> <br><br>
+    <input type="submit" value="Login">
+  </form>
+
+{%endblock%}
