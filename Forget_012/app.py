@@ -41,3 +41,45 @@ def login():
     else:
         flash("Invalid Login!")  # Show error message
         return redirect("/")     # Redirect back to login page
+    
+
+# Dashboard Page (Accessible only if logged in)
+@app.route('/dashboard')
+def dashboard():
+    if 'email' in session:   # If user is logged in
+        return render_template("dashboard.html", user=session['email'])
+    return redirect('/')     # If not logged in → go to login
+
+
+# Forgot Password Page
+@app.route('/forgot_password')
+def forgot_password():
+    return render_template("forgot_password.html")
+# Sending Reset Password Email Link
+@app.route('/send_reset_link', methods=['POST'])
+def send_reset_link():
+    email = request.form['email']  # Get entered email
+    
+    # If email is not present in dummy database
+    if email not in users:
+        flash("Email not registered!")
+        return redirect('/forgot_password')
+    
+    # Create secure token containing user's email
+    token = s.dumps(email, salt='password-reset-salt')
+    
+    # Generate reset link using token
+    link = f"http://localhost:5000/reset_password/{token}"
+    
+    # Create email message
+    msg = Message("Password Reset Request", 
+                  sender="janicode249@gmail.com",
+                  recipients=[email])
+    msg.body = f"Click the link to reset your password: {link}"
+    mail.send(msg)  # Send email
+    
+    flash("Reset link sent to your email!")
+    return redirect('/')
+
+
+
