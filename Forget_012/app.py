@@ -81,5 +81,37 @@ def send_reset_link():
     flash("Reset link sent to your email!")
     return redirect('/')
 
+# Reset Password Page (User clicks the link from email)
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    try:
+        # Decode token to get user's email
+        email = s.loads(token, salt='password-reset-salt', max_age=300)  
+        # max_age=300 → link valid for 5 minutes
+    except SignatureExpired:
+        return "Link expired! Try again."
+    
+    # After form submission → Save new password
+    if request.method == 'POST':
+        new_password = request.form['password']
+        users[email]["password"] = new_password  # Update password in dummy DB
+        flash("Password reset successful! Please login.")
+        return redirect('/')
+    
+    # Show Reset Password Form
+    return render_template("reset_password.html")
+
+
+# Logout
+@app.route('/logout')
+def logout():
+    session.pop('email', None)  # Remove user session
+    return redirect('/')        # Go back to login page
+
+
+# Run server
+app.run(debug=True)
+
+
 
 
