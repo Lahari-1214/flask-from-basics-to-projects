@@ -18,7 +18,12 @@ What is a Framework?
 8. Database Integration
 9. Authentication
 10. Deployment
+11. Python Anywhere 
 </pre>
+
+## Things to develop webpage
+1. Mini_CRUD APP
+2. Forget password
 
 ## Tech Stack
 
