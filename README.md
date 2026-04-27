@@ -39,4 +39,4 @@ What is a Framework?
 
 ## Learning Progress
 
-- [ ] Beginner → Intermediate → Building Projects
+- [x] Beginner → Intermediate → Building Projects
