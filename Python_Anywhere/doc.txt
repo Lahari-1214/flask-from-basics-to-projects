@@ -1,0 +1,97 @@
+Flask + SQLite Deployment on PythonAnywhere
+
+STEP 0: 
+
+What you need (before starting)
+✔ A Flask project on your laptop
+✔ GitHub account
+✔ PythonAnywhere account
+✔ Project files like:
+flask_app.py
+templates/
+static/
+schema.sql
+init_db.py
+
+STEP 1:
+Create PythonAnywhere account
+1️.Go to  https://www.pythonanywhere.com
+2️.Click Sign Up
+3️.Choose Beginner (Free)
+4️.Create username & password
+5️.Login
+
+STEP 2: Push your project to GitHub
+On your local machine:
+cd your_project_folder
+git init
+git add .
+git commit -m "Flask SQLite app"
+git branch -M main
+git remote add origin https://github.com/yourusername/notesprosqllite.git
+git push -u origin main
+
+STEP 3: 
+Pull project from GitHub to PythonAnywhere
+On PythonAnywhere:
+1️. Go to Dashboard → Consoles → Bash
+Run:
+cd ~
+git clone https://github.com/yourusername/notesprosqllite.git
+Now project exists at:
+/home/yourusername/notesprosqllite
+
+STEP 4: Create Virtual Environment
+In the same Bash console:
+python3.10 -m venv ~/.virtualenvs/myvenv
+source ~/.virtualenvs/myvenv/bin/activate
+You will see:
+(myvenv)
+
+STEP 5: Install required packages
+SQLite needs very few packages:
+pip install flask werkzeug
+(You do NOT install MySQL packages)
+
+STEP 6: Create Database
+Run:    
+sqlite3 notes.db < schema.sql
+This creates notes.db with the tables defined in schema.sql
+
+STEP 7: Configure Flask app for PythonAnywhere
+In flask_app.py, ensure you have:
+import os
+from flask import Flask, render_template, request, redirect, url_for
+app = Flask(__name__)
+app.config['DATABASE'] = os.path.join(os.getcwd(), 'notes.db')
+This tells Flask to use the correct path for the SQLite database on PythonAnywhere.
+
+step 8: Set up Web App on PythonAnywhere
+1️. Go to Dashboard → Web    
+2️. Click "Add a new web app"
+3️. Choose "Flask"   
+4️. Choose "Manual configuration"
+5️. Select Python 3.10
+6️. Click "Next"
+7️. In "Source code" field, enter:
+   /home/yourusername/notesprosqllite
+8️. In "Virtualenv" field, enter:
+   /home/yourusername/.virtualenvs/myvenv   
+9️. Click "Next"
+10️. In "WSGI configuration file" field, click the link to open it.
+11️. Edit the WSGI file to look like this:
+import sys
+sys.path.insert(0, '/home/yourusername/notesprosqllite')
+from flask_app import app as application
+This tells PythonAnywhere how to run your Flask app.
+12️. Save the WSGI file.
+13️. Go back to the Web tab and click "Reload" for your web app.
+STEP 9: Test your app
+Visit https://yourusername.pythonanywhere.com in your browser.
+You should see your Flask app running with SQLite database! You can add, view, and delete notes as you did locally.
+Congratulations! You've successfully deployed your Flask + SQLite app on PythonAnywhere!
+
+
+
+
+
